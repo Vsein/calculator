@@ -1,0 +1,42 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.numpad {
+  max-height: 50vh;
+  max-width: 50vh;
+}
+
+.row {
+  display: flex;
+}
+
+.row button {
+  flex: 1;
+  height: 12.5vh;
+  width: 12.5vh;
+  font-size: 2em;
+}
+
+.row p {
+  flex: 1;
+  background-color: #dddddd;
+  height: 12.5vh;
+}
+
+#equals {
+  background-color: #2278e0;
+  color: white;
+}
