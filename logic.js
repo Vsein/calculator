@@ -95,6 +95,21 @@ function calc() {
   return;
 }
 
+function getKeyboardAction(e) {
+  if (e.shiftKey) {
+    if (e.keyCode == 56) {
+      document.getElementById('multiply').click();
+      return;
+    } else if (e.keyCode == 187) {
+      document.getElementById('add').click();
+      return;
+    }
+  }
+  if (e.keyCode == 13) calc();
+  let button = document.querySelector(`button[data-key="${e.keyCode}"]`);
+  if (button) button.click();
+}
+
 const numbers = document.querySelectorAll('.num');
 numbers.forEach(num => num.addEventListener('click', addDigit));
 
@@ -105,3 +120,5 @@ document.querySelector('#clear').addEventListener('click', clear);
 document.querySelector('#equals').addEventListener('click', calc);
 document.querySelector('#delete').addEventListener('click', del);
 document.querySelector('#dot').addEventListener('click', addDot);
+
+window.addEventListener('keydown', getKeyboardAction);
