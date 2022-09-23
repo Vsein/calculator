@@ -58,9 +58,17 @@ function hasADot(string) {
 function addDigit(e) {
   const display = document.querySelector('.display p');
   if (hasAnOperator(display.textContent)) {
-    display.nextElementSibling.textContent += this.id;
+    if (display.nextElementSibling.textContent === '0') {
+      display.nextElementSibling.textContent = this.id;
+    } else {
+      display.nextElementSibling.textContent += this.id;
+    }
   } else {
-    display.textContent += this.id;
+    if (display.textContent === '0') {
+      display.textContent = this.id;
+    } else {
+      display.textContent += this.id;
+    }
   }
 }
 
@@ -78,6 +86,7 @@ function addDot(e) {
 
 function addOperation(e) {
   const display = document.querySelector('.display p');
+  if (display.textContent === '') display.textContent = '0';
   if (hasAnOperator(display.textContent)) calc();
   display.textContent += this.textContent;
 }
