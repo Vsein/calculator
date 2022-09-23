@@ -40,6 +40,11 @@ body {
   align-items: stretch;
   font-size: 2em;
   text-align: right;
+  transition: all 1s ease-out;
+}
+
+.error {
+  background-color: #ED8963;
 }
 
 .display p {

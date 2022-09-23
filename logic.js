@@ -14,12 +14,31 @@ function divide(a, b) {
   return a / b;
 }
 
+function removeTransition() {
+  this.classList.remove('error');
+  this.firstChild.textContent = "";
+}
+
+function error() {
+  const display = document.querySelector('.display');
+  display.classList.add('error');
+  display.firstChild.textContent = "Division by 0!";
+  display.addEventListener('transitionend', removeTransition);
+}
+
 function operate(operator, a, b) {
   let ans;
   if (operator == '+') ans = add(a, b);
   else if (operator == '-') ans = subtract(a, b);
   else if (operator == '*') ans = multiply(a, b);
-  else if (operator == '/') ans = (b === 0 ? 80085 : divide(a, b));
+  else if (operator == '/') {
+    if (b === 0) {
+      error();
+      return;
+    } else {
+      ans = divide(a, b);
+    }
+  }
   return Math.round(1e8 * ans) / 1e8;
 }
 
