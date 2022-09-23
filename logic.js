@@ -15,10 +15,12 @@ function divide(a, b) {
 }
 
 function operate(operator, a, b) {
-  if (operator == '+') return add(a, b);
-  else if (operator == '-') return subtract(a, b);
-  else if (operator == '*') return multiply(a, b);
-  else if (operator == '/') return (b === 0 ? 80085 : divide(a, b));
+  let ans;
+  if (operator == '+') ans = add(a, b);
+  else if (operator == '-') ans = subtract(a, b);
+  else if (operator == '*') ans = multiply(a, b);
+  else if (operator == '/') ans = (b === 0 ? 80085 : divide(a, b));
+  return Math.round(1e8 * ans) / 1e8;
 }
 
 function getLast(string) {
